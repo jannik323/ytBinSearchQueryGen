@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT-Bin Search Query Generator</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/script.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body class="checkered" style="--color-1:#181818;--color-2:#121212;">
+    <div id="hori">
+        <select name="type" id="type">
+            <option value="random">Random</option>
+        </select>
+        <div id="middleQueryHolder" >
+            <span id="query"></span>
+            <button title="copy" class="iconButton" id="copy">📋<div id="copyInfo" >copied!</div></button>
+            <button title="link" class="iconButton" id="link">🔗</button>
+
+        </div>
+        <button id="generate">Generate</button>
+    </div>
+    <div id="options" >
+        <u><h2>⚙️Settings⚙️</h2></u>
+        <div>
+            <label for="viewCountToggle">View Count Filter</label><br>
+            <input type="checkbox" id="viewCountToggle" name="viewCountToggle">
+        </div>
+    </div>
+</body>
+</html>
