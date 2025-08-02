@@ -326,7 +326,7 @@ let typeHolder = {
         group:1
     },"video":{
         rngGen: dateRNGGen,
-        rngGrenPara:"Y-M-D-H-M-S",
+        rngGrenPara:"Y-M-D",
         staticPart:"video-",
         displayName:"video",
         group:1
