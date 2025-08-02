@@ -6,12 +6,17 @@
     <title>YT-Bin Search Query Generator</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/script.js"></script>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="checkered" style="--color-1:#181818;--color-2:#121212;">
     <div id="hori">
         <select name="type" id="type">
-            <option value="random">Random</option>
+            <optgroup style="font-family: Raleway-Regular;" label="Random">
+                <option value="random">Random Type</option>
+            </optgroup>
+            <optgroup style="font-family: Raleway-Regular;" label="Yield Random Date 1/2" id="yield_random_date_half_opt_group"></optgroup>
+            <optgroup style="font-family: Raleway-Regular;" label="Yield Exact Date" id="yield_exact_date_opt_group"></optgroup>
+            <optgroup label="Webcam" id="webcam_opt_group"></optgroup>
         </select>
         <div id="middleQueryHolder" >
             <span id="query"></span>

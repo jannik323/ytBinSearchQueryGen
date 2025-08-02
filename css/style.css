@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'Raleway-Regular';
-    src: url("/fonts/Raleway-Regular.ttf") format("truetype");
+    src: url("../fonts/Raleway-Regular.ttf") format("truetype");
 }
 
 *{
@@ -60,9 +60,9 @@ button:hover{
 
 .iconButton{
     font-size: 1rem;
-    margin: 0rem .1rem;
+    margin-right: .2rem;
     height: 1.8rem;
-    aspect-ratio: 1/1;
+    width: 1.8rem;
     text-align: center;
     text-justify: center;
     padding: 0;
@@ -84,7 +84,7 @@ button:hover{
     min-width: 8rem;
     text-align: center;
     margin-left:  1rem;
-    margin-right: 0.9rem;
+    margin-right: 1rem;
 }
 
 #copyInfo{
@@ -98,13 +98,14 @@ button:hover{
     opacity:0;
     cursor: default;
     pointer-events: none;
+    z-index: -1;
 }
 
 @keyframes clicked {
-    0% { opacity: 0; bottom:2rem}
-    25% { opacity: 1; bottom:3.1rem}
-    75% { opacity: 1; bottom:3rem}
-    100% { opacity: 0; bottom:2rem}
+    0% { opacity: 0; bottom:2rem;scale:0}
+    25% { opacity: 1; bottom:3.1rem;scale:1}
+    75% { opacity: 1; bottom:3rem;scale:1}
+    100% { opacity: 0; bottom:2rem;scale:0}
 }
 
 #options{

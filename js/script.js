@@ -1,5 +1,10 @@
 let generateButtonEle = document.getElementById("generate");
 let typeSelectEle = document.getElementById("type");
+let typeSelectGroupHolderEles = [
+    document.getElementById("yield_random_date_half_opt_group"),
+    document.getElementById("yield_exact_date_opt_group"),
+    document.getElementById("webcam_opt_group")
+];
 let queryTextEle = document.getElementById("query");
 let linkButtonEle = document.getElementById("link");
 let copyButtonEle = document.getElementById("copy");
@@ -58,103 +63,120 @@ let typeHolder = {
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"IMG ",
-        displayName:"IMG"
+        displayName:"IMG",
+        group:0
     }
     ,"MVI":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"MVI ",
-        displayName:"MVI"
+        displayName:"MVI",
+        group:0
     }
     ,"MOV":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"MOV ",
-        displayName:"MOV"
+        displayName:"MOV",
+        group:0
     }
     ,"100":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"100 ",
-        displayName:"100"
+        displayName:"100",
+        group:0
     }
     ,"SAM":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"SAM ",
-        displayName:"SAM"
+        displayName:"SAM",
+        group:0
     }
     ,"DSC":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"DSC ",
-        displayName:"DSC"
+        displayName:"DSC",
+        group:0
     }
     ,"SDV":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"SDV ",
-        displayName:"SDV"
+        displayName:"SDV",
+        group:0
     }
     ,"DSCF":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"DSCF",
-        displayName:"DSCF"
+        displayName:"DSCF",
+        group:0
     }
     ,"DSCN":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"DSCN",
-        displayName:"DSCN"
+        displayName:"DSCN",
+        group:0
     }
     ,"PICT":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"PICT",
-        displayName:"PICT"
+        displayName:"PICT",
+        group:0
     }
     ,"MAQ":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"MAQ0",
-        displayName:"MAQ"
+        displayName:"MAQ",
+        group:0
     }
     ,"FILE":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"FILE",
-        displayName:"FILE"
+        displayName:"FILE",
+        group:0
     }
     ,"GOPR":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"GOPR",
-        displayName:"GOPR"
+        displayName:"GOPR",
+        group:0
     }
     ,"GP":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"GP01",
-        displayName:"GP"
+        displayName:"GP",
+        group:0
     }
     ,"GX":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"GX01",
-        displayName:"GX"
+        displayName:"GX",
+        group:0
     }
     ,"DJI":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:9999,
         staticPart:"DJI ",
-        displayName:"DJI"
+        displayName:"DJI",
+        group:0
     }
     ,"ZOOM":{
         rngGen:numberWithPadRNGGen,
-        rngGrenPara:9999,
-        staticPart:"ZOOM",
-        displayName:"ZOOM"
+        rngGrenPara:999,
+        staticPart:"ZOOM0",
+        displayName:"ZOOM",
+        group:0
     }
 
 
@@ -164,17 +186,19 @@ let typeHolder = {
         rngGen:numberWithPadRNGGen,
         rngGrenPara:100,
         staticPart:"HNI 0",
-        displayName:"HNI"
+        displayName:"HNI",
+        group:0
     }
     ,"WA":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:999,
         staticPart:"WA0",
-        displayName:"WA"
+        displayName:"WA",
+        group:0
     }
     ,"MOL":{
         rngGen: function(){
-            if(numberRNGGen(1)==1){
+            if(numberRNGGen(1)=="1"){
                 return letterRNGGen()+numberRNGGen(9);
             }else{
                 return numberWithPadRNGGen(99);
@@ -182,46 +206,52 @@ let typeHolder = {
         },
         rngGrenPara:null,
         staticPart:"MOL0",
-        displayName:"MOL"
+        displayName:"MOL",
+        group:0
     }
     ,"HMS":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:235959,
         staticPart:"",
-        displayName:"HMS"
+        displayName:"HMS",
+        group:0
     }
     ,"P":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:99999,
         staticPart:"P10",
-        displayName:"P"
+        displayName:"P",
+        group:0
     }
     ,"VTS":{
         rngGen: function(){
             switch(numberRNGGen(2)){
-                case 0:
+                case "0":
                 return numberWithPadRNGGen(99)+" "+numberRNGGen(9);
-                case 1:
+                case "1":
                 return numberWithPadRNGGen(999)+" 1";
-                case 2:
+                case "2":
                 return "01 "+numberWithPadRNGGen(999);
             }
         },
         rngGrenPara:null,
         staticPart:"VTS ",
-        displayName:"VTS"
+        displayName:"VTS",
+        group:0
     }
     ,"Slideshow":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:99,
         staticPart:"My Slideshow ",
-        displayName:"Slideshow"
+        displayName:"Slideshow",
+        group:0
     }
     ,"Stupeflix":{
         rngGen:numberWithPadRNGGen,
         rngGrenPara:1050,
         staticPart:"My Stupeflix Video ",
-        displayName:"Stupeflix"
+        displayName:"Stupeflix",
+        group:0
     }
 
 
@@ -230,37 +260,43 @@ let typeHolder = {
         rngGen:dateRNGGen,
         rngGrenPara:"YMD",
         staticPart:"",
-        displayName:"YMD"
+        displayName:"YMD",
+        group:1
     }
     ,"MDY":{
         rngGen:dateRNGGen,
         rngGrenPara:"MDY",
         staticPart:"",
-        displayName:"MDY"
+        displayName:"MDY",
+        group:1
     }
     ,"DMY":{
         rngGen:dateRNGGen,
         rngGrenPara:"DMY",
         staticPart:"",
-        displayName:"DMY"
+        displayName:"DMY",
+        group:1
     }
     ,"WIN":{
         rngGen:dateRNGGen,
         rngGrenPara:"YMD",
         staticPart:"WIN ",
-        displayName:"WIN"
+        displayName:"WIN",
+        group:2
     }
     ,"VID":{
         rngGen:dateRNGGen,
         rngGrenPara:"YMD",
         staticPart:"VID ",
-        displayName:"VID"
+        displayName:"VID",
+        group:2
     }
     ,"Capture":{
         rngGen:dateRNGGen,
         rngGrenPara:"YMD",
         staticPart:"Capture ",
-        displayName:"Capture"
+        displayName:"Capture",
+        group:2
     }
     ,"InShot":{
         rngGen: function(){
@@ -268,7 +304,8 @@ let typeHolder = {
         },
         rngGrenPara:null,
         staticPart:"InShot ",
-        displayName:"InShot"
+        displayName:"InShot",
+        group:1
     }
     ,"AUD":{
         rngGen: function(){
@@ -276,7 +313,8 @@ let typeHolder = {
         },
         rngGrenPara:null,
         staticPart:"AUD-",
-        displayName:"AUD"
+        displayName:"AUD",
+        group:1
     }
     ,"PXL":{
         rngGen: function(){
@@ -284,12 +322,14 @@ let typeHolder = {
         },
         rngGrenPara:null,
         staticPart:"PXL ",
-        displayName:"PXL"
+        displayName:"PXL",
+        group:1
     },"video":{
         rngGen: dateRNGGen,
         rngGrenPara:"Y-M-D-H-M-S",
         staticPart:"video-",
-        displayName:"video"
+        displayName:"video",
+        group:1
     }
 }
 
@@ -300,7 +340,7 @@ for (const key in typeHolder) {
     optionEle.value = key;
     optionEle.innerText = typeHolderObj.displayName;
     optionEle.title ="test";
-    typeSelectEle.appendChild(optionEle);
+    typeSelectGroupHolderEles[typeHolderObj.group].appendChild(optionEle);
 }
 
 generateButtonEle.addEventListener("click",e=>{
@@ -318,9 +358,11 @@ copyButtonEle.addEventListener("click",e=>{
     copyInfoEle.style.animation="none";
     clearTimeout(timeout);
     timeout = setTimeout(()=>{
-        copyInfoEle.style.animation = "clicked 1s 1";
+        copyInfoEle.style.animation = "clicked .75s 1";
     },1);
 });
+
+generateYTBinSearchQuery();
 
 function randomProperty(obj) {
     var keys = Object.keys(obj);
