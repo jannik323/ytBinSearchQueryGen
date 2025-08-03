@@ -171,13 +171,6 @@ let typeHolder = {
         displayName:"DJI",
         group:0
     }
-    ,"ZOOM":{
-        rngGen:numberWithPadRNGGen,
-        rngGrenPara:999,
-        staticPart:"ZOOM0",
-        displayName:"ZOOM",
-        group:0
-    }
 
 
 
@@ -259,6 +252,37 @@ let typeHolder = {
         displayName:"MAH",
         group:0
     }
+    ,"ZOOM":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"ZOOM0",
+        displayName:"ZOOM",
+        group:0
+    },"影片":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"影片0",
+        displayName:"film (jap.)",
+        group:0
+    },"VIDEOXXXX":{
+        rngGen: numberWithPadRNGGen,
+        rngGrenPara:9999,
+        staticPart:"VIDEO",
+        displayName:"VIDEO",
+        group:0
+    },"CIMG":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:9999,
+        staticPart:"CIMG",
+        displayName:"CIMG",
+        group:0
+    },"ANMR":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"ANMR0",
+        displayName:"ANMR",
+        group:0
+    }
 
 
 
@@ -334,7 +358,7 @@ let typeHolder = {
         rngGen: dateRNGGen,
         rngGrenPara:"Y-M-D",
         staticPart:"video-",
-        displayName:"video",
+        displayName:"video (date)",
         group:1
     }
 
