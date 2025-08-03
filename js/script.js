@@ -351,7 +351,12 @@ for (const key in typeHolder) {
 }
 
 generateButtonEle.addEventListener("click",e=>{
-    generateYTBinSearchQuery();
+    clearTimeout(timeout);
+    queryTextEle.style.animation="none";
+    timeout = setTimeout(()=>{
+        queryTextEle.style.animation = "textwiggle .75s 1";
+        generateYTBinSearchQuery();
+    },1);
 });
 
 linkButtonEle.addEventListener("click",e=>{

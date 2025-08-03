@@ -81,7 +81,7 @@ button:hover{
 }
 
 #query{
-    min-width: 8rem;
+    min-width: 12rem;
     text-align: center;
     margin-left:  1rem;
     margin-right: 1rem;
@@ -106,6 +106,21 @@ button:hover{
     25% { opacity: 1; bottom:3.1rem;scale:1}
     75% { opacity: 1; bottom:3rem;scale:1}
     100% { opacity: 0; bottom:2rem;scale:0}
+}
+
+@keyframes textwiggle {
+    0% {
+    opacity: 0;
+    transform: rotateX(90def);
+  }
+  50% {
+    opacity: 1;
+    transform: rotateX(720deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(720deg);
+  }
 }
 
 #options{
