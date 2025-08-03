@@ -252,6 +252,12 @@ let typeHolder = {
         staticPart:"My Stupeflix Video ",
         displayName:"Stupeflix",
         group:0
+    },"MAH":{
+        rngGen: numberWithPadRNGGen,
+        rngGrenPara:9999,
+        staticPart:"MAH0",
+        displayName:"MAH",
+        group:0
     }
 
 
@@ -331,6 +337,7 @@ let typeHolder = {
         displayName:"video",
         group:1
     }
+
 }
 
 for (const key in typeHolder) {
