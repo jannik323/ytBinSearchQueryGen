@@ -10,11 +10,11 @@ let linkButtonEle = document.getElementById("link");
 let copyButtonEle = document.getElementById("copy");
 let copyInfoEle = document.getElementById("copyInfo");
 let viewCountToggleEle = document.getElementById("viewCountToggle");
+let allintitleToggleEle = document.getElementById("allintitleToggle");
 let currentQuery = "";
 const ytSearchURL = "https://www.youtube.com/results?search_query=";
 const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 const ytBirth = new Date(2005,4,23);
-const filterActive = false;  
 
 function noneRNGGen(){
     return "";
@@ -282,6 +282,30 @@ let typeHolder = {
         staticPart:"ANMR0",
         displayName:"ANMR",
         group:0
+    },"Видео":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"Видео 0",
+        displayName:"video (rus.)",
+        group:0
+    },"M4H":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:9999,
+        staticPart:"M4H0",
+        displayName:"M4H",
+        group:0
+    },"M2U":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:9999,
+        staticPart:"M4H0",
+        displayName:"M2U",
+        group:0
+    },"trim":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:9999,
+        staticPart:"trim ",
+        displayName:"trim",
+        group:0
     }
 
 
@@ -307,26 +331,12 @@ let typeHolder = {
         displayName:"DMY",
         group:1
     }
-    ,"WIN":{
-        rngGen:dateRNGGen,
-        rngGrenPara:"YMD",
-        staticPart:"WIN ",
-        displayName:"WIN",
-        group:2
-    }
     ,"VID":{
         rngGen:dateRNGGen,
         rngGrenPara:"YMD",
         staticPart:"VID ",
         displayName:"VID",
-        group:2
-    }
-    ,"Capture":{
-        rngGen:dateRNGGen,
-        rngGrenPara:"YMD",
-        staticPart:"Capture ",
-        displayName:"Capture",
-        group:2
+        group:1
     }
     ,"InShot":{
         rngGen: function(){
@@ -360,13 +370,41 @@ let typeHolder = {
         staticPart:"video-",
         displayName:"video (date)",
         group:1
+    },"WP":{
+        rngGen: dateRNGGen,
+        rngGrenPara:"YMD",
+        staticPart:"WP ",
+        displayName:"WP",
+        group:1
     }
-
+    
+    
+    ,"WIN":{
+        rngGen:dateRNGGen,
+        rngGrenPara:"YMD",
+        staticPart:"WIN ",
+        displayName:"WIN",
+        group:2
+    }
+    ,"Capture":{
+        rngGen:dateRNGGen,
+        rngGrenPara:"YMD",
+        staticPart:"Capture ",
+        displayName:"Capture",
+        group:2
+    },"Webcam":{
+        rngGen:dateRNGGen,
+        rngGrenPara:"D M Y",
+        staticPart:"Webcam ",
+        displayName:"Webcam",
+        group:2
+    }
+    
 }
 
 for (const key in typeHolder) {
     const typeHolderObj = typeHolder[key];
-
+    
     let optionEle = document.createElement("option");
     optionEle.value = key;
     optionEle.innerText = typeHolderObj.displayName;
@@ -412,5 +450,8 @@ function generateYTBinSearchQuery(){
     }
     let typeHolderObj = typeHolder[currentType];
     currentQuery=typeHolderObj.staticPart+typeHolderObj.rngGen(typeHolderObj.rngGrenPara);
+    if(allintitleToggleEle.checked){
+        currentQuery = "allintitle:"+currentQuery;
+    }
     queryTextEle.innerText=currentQuery;
 }
