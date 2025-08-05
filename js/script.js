@@ -306,6 +306,30 @@ let typeHolder = {
         staticPart:"trim ",
         displayName:"trim",
         group:0
+    },"clip":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"clip0",
+        displayName:"clip",
+        group:0
+    },"Snimek":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"Snimek ",
+        displayName:"Snimek",
+        group:0
+    },"moto":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:1999,
+        staticPart:"moto_",
+        displayName:"moto",
+        group:0
+    },"Clipchamp":{
+        rngGen:numberWithPadRNGGen,
+        rngGrenPara:999,
+        staticPart:"Untitled video - Made with Clipchamp ",
+        displayName:"Clipchamp",
+        group:0
     }
 
 
@@ -375,6 +399,14 @@ let typeHolder = {
         rngGrenPara:"YMD",
         staticPart:"WP ",
         displayName:"WP",
+        group:1
+    },"GMT":{
+        rngGen: ()=>{
+            return dateRNGGen("YMD",2011);
+        },
+        rngGrenPara:null,
+        staticPart:"GMT",
+        displayName:"GMT",
         group:1
     }
     
